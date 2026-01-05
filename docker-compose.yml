@@ -1,0 +1,24 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: georeports
+      POSTGRES_USER: elhas
+      POSTGRES_PASSWORD: root
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  api:
+    build: .
+    ports:
+      - "8085:8085"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/georeports
+      SPRING_DATASOURCE_USERNAME: elhas
+      SPRING_DATASOURCE_PASSWORD: root
+    depends_on:
+      - db
+volumes:
+  pgdata:
