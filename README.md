@@ -1,4 +1,4 @@
-# SISTA GeoReports API
+# GeoReports project
 
 Mini-projet (4h) : API Spring Boot + PostgreSQL pour collecter des observations terrain, produire du GeoJSON et des stats.  
 Inclut Docker, docker-compose et CI GitHub Actions (build + push DockerHub).
